@@ -51,11 +51,11 @@ Aby uruchomić testy:
 pytest
 ```
 
-Po wykonaniu testów raport jest dostępny w pliku `report.html`
+Po wykonaniu testów raport jest dostępny w pliku `start test-reports/index.html`
 
 windows:
 ```
-start report.html
+start test-reports/index.html
 ```
 
 Zrzuty z testów są dostępne w folderze screenshots
