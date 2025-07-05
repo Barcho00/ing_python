@@ -1,0 +1,44 @@
+name: Pytest then Report Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main, github_deploy ]
+  pull_request:
+    branches: [ main, github_deploy ]
+  workflow_dispatch:
+
+jobs:
+  test-and-deploy:
+    runs-on: self-hosted
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run pytest 
+        continue-on-error: true  
+        run: |
+          pytest
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        if: always()
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./test-reports
+          keep_files: true
+          user_name: 'Bartosz QA Bot'
+          user_email: 'bartosz.kwiecinski@hotmail.com'
