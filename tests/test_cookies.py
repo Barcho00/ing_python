@@ -43,20 +43,23 @@ def test_cookies(browser_context, request):
     assert MainPage.COOKIE_GDPR_DETAILS in cookie_names, f"{MainPage.COOKIE_GDPR_DETAILS} not found in cookies"
     assert MainPage.COOKIE_INCPS in cookie_names, f"{MainPage.COOKIE_INCPS} not found in cookies"
 
-    # 4 for both selected, 3 for analytical + technical , 2 for only marketing + technical , 1 for technical only
+    # 4 for both selected, 3 for analytical + technical , 2 for  marketing + technical , 1 for technical only
 
     # Assert cookiePolicyGDPR value is 3 - for only analytical
     gdpr_cookie = next(cookie for cookie in cookies_post if cookie['name'] == MainPage.COOKIE_GDPR)
-    assert gdpr_cookie['value'] == MainPage.GDPR_EXPECTED_VALUE_ANALYTICAL_ONLY, f"{MainPage.COOKIE_GDPR} value is {gdpr_cookie['value']} instead of {MainPage.GDPR_EXPECTED_VALUE_ANALYTICAL_ONLY}"
+    assert gdpr_cookie['value'] == MainPage.GDPR_EXPECTED_VALUE_ANALYTICAL_ONLY, \
+        f"{MainPage.COOKIE_GDPR} value is {gdpr_cookie['value']} instead of {MainPage.GDPR_EXPECTED_VALUE_ANALYTICAL_ONLY}"
 
     # Assert cookiePolicyGDPR__details contains text "cookieCreateTimestamp"
     gdpr_details_cookie = next(cookie for cookie in cookies_post if cookie['name'] == MainPage.COOKIE_GDPR_DETAILS)
     details_value = json.loads(gdpr_details_cookie['value'])
-    assert MainPage.GDPR_DETAILS_TIMESTAMP_KEY in details_value, f"{MainPage.GDPR_DETAILS_TIMESTAMP_KEY} not found in {MainPage.COOKIE_GDPR_DETAILS}"
+    assert MainPage.GDPR_DETAILS_TIMESTAMP_KEY in details_value, \
+        f"{MainPage.GDPR_DETAILS_TIMESTAMP_KEY} not found in {MainPage.COOKIE_GDPR_DETAILS}"
 
     # Assert cookiePolicyINCPS value is true 
     incps_cookie = next(cookie for cookie in cookies_post if cookie['name'] == MainPage.COOKIE_INCPS)
-    assert incps_cookie['value'] == MainPage.INCPS_EXPECTED_VALUE, f"{MainPage.COOKIE_INCPS} value is {incps_cookie['value']} instead of {MainPage.INCPS_EXPECTED_VALUE}"
+    assert incps_cookie['value'] == MainPage.INCPS_EXPECTED_VALUE, \
+        f"{MainPage.COOKIE_INCPS} value is {incps_cookie['value']} instead of {MainPage.INCPS_EXPECTED_VALUE}"
     
     # Get the screenshot
     screenshot_path = f"{screenshot_dir}/cookies_{browser_context._browser_type_name}_{Utils.get_actual_timestamp()}.png"
