@@ -14,17 +14,19 @@
 
 ### Ubuntu - do sprawdzenia
 
-1. Zainstaluj wymagane biblioteki systemowe (jeśli nie masz):
+1. Zainstaluj wymagane biblioteki systemowe 
 
     ```bash
-    sudo apt-get update
-    sudo apt-get install -y libnss3 libatk-bridge2.0-0 libgtk-3-0 libxss1 libasound2 libgbm-dev
+    sudo apt update && sudo apt upgrade -y
+    sudo apt install -y git python3 python3-pip
+    pip install playwright
+    python3 -m playwright install --with-deps
+
     ```
 2. Instalacja zależności Pythona i Playwrighta:
 
     ```bash
     pip install -r requirements.txt
-    playwright install
     ```
 
 ### MacOS - do sprawdzenia
