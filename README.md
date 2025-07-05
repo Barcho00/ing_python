@@ -12,7 +12,7 @@
     playwright install
     ```
 
-### Ubuntu - do sprawdzenia
+### Ubuntu 
 
 1. Zainstaluj wymagane biblioteki systemowe 
 
@@ -29,21 +29,10 @@
     pip install -r requirements.txt
     ```
 
-### MacOS - do sprawdzenia
 
-1. Instalacja Playwrighta:
 
-    ```bash
-    brew install --cask playwright
-    ```
-2. Instalacja zależności Pythona:
 
-    ```bash
-    pip install -r requirements.txt
-    playwright install
-    ```
-
-## Uruchamianie testów
+## Uruchamianie testów Windows
 
 Aby uruchomić testy:
 
@@ -64,6 +53,10 @@ Zrzuty z testów są dostępne w folderze screenshots
 ./screenshots/
 ```
 
+## Uruchamianie testów Ubuntu:
+
+TO DO
+
 # MINI WIKI
 
 Dodatkowe informacje o testach :
@@ -72,4 +65,6 @@ Dodatkowe informacje o testach :
 + Zrzuty ekranu wykonywane są po zakończeniu testów – umożliwia to wizualną weryfikację. 
 + Aby __debugować testy z podglądem__, należy wyłączyć tryb headless w pliku conftest.py.
 + __Konfiguracja ilości wątków__ w pliku pytest za pomocą parametru `-n 4` gdzie 4 oznacza ilość wątków w których mają się uruchomić testy
-+ Wybór przeglądarek do testów odbywa się bezpośrednio w plikach testowych, poprzez parametryzację testów. Możliwe jest także ustawienie globalne, ale wtedy wszystkie wyniki zapisywane są w jednym zbiorczym casie w raporcie.
++ Wybór przeglądarek do testów odbywa się bezpośrednio w plikach testowych, poprzez parametryzację testów. Możliwe jest także ustawienie globalne, ale wtedy wszystkie wyniki zapisywane są w jednym zbiorczym CASE-ie w raporcie.
++ Raport po autodeployu dostepny w lokalizacji https://barcho00.github.io/ing_python/
++  TODO: Dodanie flagi sterującej printami (aka. verbose) aby zostawić tylko niezbędne printy 
