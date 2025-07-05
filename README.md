@@ -1,6 +1,5 @@
 ## Wymagania wstępne
-- Python
-- Node.js (najlepiej LTS)
+- Python 3.12+
 
 ## Przygotowanie środowiska
 
@@ -52,8 +51,9 @@ pytest
 
 Po wykonaniu testów raport jest dostępny w pliku `report.html`
 
+windows:
 ```
-./report.html
+start report.html
 ```
 
 Zrzuty z testów są dostępne w folderze screenshots
@@ -66,8 +66,8 @@ Zrzuty z testów są dostępne w folderze screenshots
 
 Dodatkowe informacje o testach :
 
-+ Czyszczenie folderu screenshots przed każdym testem
-+ Zrzuty pod koniec testów - możliwe zweryfikowanie wizualne 
-+ Aby __umożliwić debugowanie__ aktualnej sesji z podglądem można wyłączyć tryb headles w pliku conftest.py w głównym katalogu.
++ Czyszczenie folderu screenshots przed każdym testem.
++ Zrzuty ekranu wykonywane są po zakończeniu testów – umożliwia to wizualną weryfikację. 
++ Aby __debugować testy z podglądem__, należy wyłączyć tryb headless w pliku conftest.py.
 + __Konfiguracja ilości wątków__ w pliku pytest za pomocą parametru `-n 4` gdzie 4 oznacza ilość wątków w których mają się uruchomić testy
-+ __Konfigurowanie przeglądarek__ obywa się w pliku z testami poprzez parametryzowanie przy konkretnym teście - jest możliwość również globalnego ustawienia przeglądarek ale wynik z był zapisywany pod jednym "resultem"
++ Wybór przeglądarek do testów odbywa się bezpośrednio w plikach testowych, poprzez parametryzację testów. Możliwe jest także ustawienie globalne, ale wtedy wszystkie wyniki zapisywane są w jednym zbiorczym casie w raporcie.
