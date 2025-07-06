@@ -43,7 +43,7 @@ def test_cookies(browser_context, request):
     assert MainPage.COOKIE_GDPR_DETAILS in cookie_names, f"{MainPage.COOKIE_GDPR_DETAILS} not found in cookies"
     assert MainPage.COOKIE_INCPS in cookie_names, f"{MainPage.COOKIE_INCPS} not found in cookies"
 
-    # 4 for both selected, 3 for analytical + technical , 2 for  marketing + technical , 1 for technical only
+    # "4" for for all three, "3" for analytical + technical , "2" for  marketing + technical , "1" for technical only
 
     # Assert cookiePolicyGDPR value is 3 - for only analytical
     gdpr_cookie = next(cookie for cookie in cookies_post if cookie['name'] == MainPage.COOKIE_GDPR)
