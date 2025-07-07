@@ -67,4 +67,5 @@ Dodatkowe informacje o testach :
 + __Konfiguracja ilości wątków__ w pliku pytest za pomocą parametru `-n 4` gdzie 4 oznacza ilość wątków w których mają się uruchomić testy
 + Wybór przeglądarek do testów odbywa się bezpośrednio w plikach testowych, poprzez parametryzację testów. Możliwe jest także ustawienie globalne, ale wtedy wszystkie wyniki zapisywane są w jednym zbiorczym CASE-ie w raporcie.
 + Raport po autodeployu dostepny w lokalizacji https://barcho00.github.io/ing_python/
-+  TODO: Dodanie flagi sterującej printami (aka. verbose) aby zostawić tylko niezbędne printy 
++ Workflow dostępny pod https://github.com/Barcho00/ing_python/actions
++ TODO: Dodanie flagi sterującej printami (aka. verbose) aby zostawić tylko niezbędne printy 

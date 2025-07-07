@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  test-and-deploy:
+  pytest-publish-report:
     runs-on: self-hosted
     permissions:
       contents: write
@@ -23,7 +23,6 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: '3.x'
-
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
