@@ -1,6 +1,7 @@
 from playwright.sync_api import Page
 
 class MainPage:
+    MAIN_PAGE_URL = "https://www.ing.pl/"
     COOKIE_GDPR = "cookiePolicyGDPR"
     COOKIE_GDPR_DETAILS = "cookiePolicyGDPR__details"
     COOKIE_INCPS = "cookiePolicyINCPS"
@@ -25,7 +26,7 @@ class MainPage:
         self.accept_selected_button_selector = "button.js-cookie-policy-settings-decline-button"
 
     def goto(self):
-        self.page.goto("https://www.ing.pl/")
+        self.page.goto(self.MAIN_PAGE_URL)
 
     def get_url(self):
         return self.page.url
